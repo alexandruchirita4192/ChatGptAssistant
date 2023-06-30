@@ -5,14 +5,14 @@ run_api:	recreate_api_venv
 
 stop_api:
 	killall python > /dev/null 2> /dev/null
-stop_web:	stop_api
+stop_web:
 	killall ionic > /dev/null 2> /dev/null
-stop_electron:	stop_api
-	killall ChatGptAssistant	
-stop_all:	stop_web	stop_electron
+stop_electron:
+	killall chat-gpt-assistant	
+stop_all:	stop_api	stop_web	stop_electron
 
 clean_electron_all:
-	rm -rf ChatGptFrontEnd/ChatGptAssistant-*
+	rm -rf ChatGptFrontEnd/chat-gpt-assistant-*
 build_electron_linux: clean_electron_all
 	cd ChatGptFrontEnd && electron-packager . --platform=linux --overwrite
 build_electron_win32: clean_electron_all
@@ -21,7 +21,7 @@ build_electron_all: clean_electron_all
 	cd ChatGptFrontEnd && electron-packager . --platform=all --overwrite
 
 run_electron_linux:	run_api build_electron_linux
-	./ChatGptFrontEnd/ChatGptAssistant-linux-x64/ChatGptAssistant &
+	./ChatGptFrontEnd/chat-gpt-assistant-linux-x64/chat-gpt-assistant &
 
 clean_api_venv:
 	rm -rf ChatGptBackEnd/venv
