@@ -14,10 +14,14 @@ function createWindow () {
   // win.loadFile('src/index.html')
   //win.loadFile('src/app/home/home.page.html')
 
-  // Load the Ionic application after building with `ionic build --prod`
+  
   win.loadURL(
     process.env.ELECTRON_START_URL ||
+    // Load the Ionic application after building with `ionic build --prod`
     `file://${__dirname}/www/index.html`
+
+    // This should use the source but it's showing empty page
+    //`file://${__dirname}/src/index.html`
   );
 
   // Alternate way to load directory

@@ -13,24 +13,24 @@ $RECYCLE.BIN/
 log.txt
 
 
-/.sourcemaps
-/.versions
-/coverage
+.sourcemaps
+.versions
+coverage
 
 # Ionic
-/.ionic
-/www
-/platforms
-/plugins
+.ionic
+www
+platforms
+plugins
 
 # Compiled output
-/dist
-/tmp
-/out-tsc
-/bazel-out
+dist
+tmp
+out-tsc
+bazel-out
 
 # Node
-/node_modules
+node_modules
 npm-debug.log
 yarn-error.log
 
@@ -45,6 +45,7 @@ yarn-error.log
 *.sublime-workspace
 
 # Visual Studio Code
+.vscode
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
@@ -54,14 +55,14 @@ yarn-error.log
 
 
 # Miscellaneous
-/.angular
-/.angular/cache
+.angular
+.angular/cache
 .sass-cache/
-/connect.lock
-/coverage
-/libpeerconnection.log
+connect.lock
+coverage
+libpeerconnection.log
 testem.log
-/typings
+typings
 
 # System files
 .DS_Store
@@ -73,4 +74,3 @@ ChatGptFrontEnd/node_modules
 
 # BackEnd virtual environment files
 ChatGptBackEnd/venv
-

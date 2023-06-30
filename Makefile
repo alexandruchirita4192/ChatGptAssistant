@@ -13,11 +13,15 @@ stop_all: stop_api stop_web stop_electron
 
 clean_electron_all:
 	rm -rf ChatGptFrontEnd/chat-gpt-assistant-*
-build_electron_linux: clean_electron_all
+clean_ionic:
+	rm -rf ChatGptFrontEnd/www
+build_ionic: clean_ionic
+	cd ChatGptFrontEnd && ionic build --prod
+build_electron_linux: clean_electron_all build_ionic
 	cd ChatGptFrontEnd && electron-packager . --platform=linux --overwrite
-build_electron_win32: clean_electron_all
+build_electron_win32: clean_electron_all build_ionic
 	cd ChatGptFrontEnd && electron-packager . --platform=win32 --overwrite
-build_electron_all: clean_electron_all
+build_electron_all: clean_electron_all build_ionic
 	cd ChatGptFrontEnd && electron-packager . --platform=all --overwrite
 
 run_electron_linux: run_api build_electron_linux
