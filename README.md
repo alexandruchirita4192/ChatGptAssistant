@@ -1,2 +1,2 @@
 # ChatGptAssistant
-ChatGptAssistant
+ChatGPT Assistant

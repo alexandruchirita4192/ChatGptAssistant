@@ -1,0 +1,7 @@
+{
+  "name": "IonicChatGptWebInterface",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

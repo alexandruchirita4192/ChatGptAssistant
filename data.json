@@ -1,0 +1,16 @@
+{
+  "sentiment_positivity": "What is the sentiment of the following text, which is delimited with triple backticks? Give your answer as a single word, either 'positive' or 'negative'. Text: ```{text}```",
+  "list_emotions": "Identify a list of emotions that the writer of the following text delimited by triple backticks is expressing. Include no more than five items in the list. Format your answer as a list of lower-case words separated by commas. Text: ```{text}```",
+  "spellcheck": "Proofread and correct the following text delimited by triple backticks and rewrite the corrected version. Text: ```{text}```",
+  "spellcheck_improved": "Proofread and correct the following text delimited by triple backticks and rewrite the corrected version. Make it more compelling. Text: ```{text}```",
+  "spellcheck_recheck": "Proofread and correct the following text delimited by triple backticks and rewrite the corrected version. Get the resulted text and re-check it's grammar by proofreading and correcting it again. Output only the last iteration of the text after the re-check. Text: ```{text}```",
+  "summary": "Your task is to generate a short summary of a text. Summarize the text below, delimited by triple backticks, in at most 30 words. Text: ```{text}```",
+  "translate_to_en": "Translate the following text delimited by triple backticks to English in both the formal and informal forms. Text: ```{text}```",
+  "translate_to_ro": "Translate the following text delimited by triple backticks to Romanian in both the formal and informal forms. Text: ```{text}```",
+  "identify_language": "Tell me which language this is: ```{text}```",
+  "rewrite_professional": "Rewrite in a concise and professional tone the following text delimited by triple backticks. Text: ```{text}```",
+  "find_bug": "Find the bug in the following code: ```{text}```",
+  "refactor_code": "Refactor the follwing code using best practices, OOP (Object Oriented Programming) principles, SOLID principles (Single Responsability, Open-Closed, Liskov, Interface segregation, Dependency inversion), DDD (Domain Driven Design) principles, design patterns and ensure methods follow functional programming (purity and no side effects) principles as needed ensuring that formatting is consistent in the code. Apply each principle one by one and leave a comment explaining the fix or the issue that couldn't be solved. Code: ```{text}```",
+  "develop": "Assume the role of a highly skilled software developer writing code and then refactoring it few times to complete the solution using best practices, OOP principles, SOLID principles, DDD, design patterns and functional programming principles for methods. Write code using the following specification: ```{text}```",
+  "Freetext prompt": "{text}"
+}
