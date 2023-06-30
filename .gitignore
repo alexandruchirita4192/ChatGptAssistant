@@ -69,6 +69,8 @@ Thumbs.db
 
 # chat-gpt-assistant electron build files to ignore
 ChatGptFrontEnd/chat-gpt-assistant-*
+ChatGptFrontEnd/node_modules
 
 # BackEnd virtual environment files
 ChatGptBackEnd/venv
+
