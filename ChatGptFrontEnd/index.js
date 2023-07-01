@@ -19,15 +19,13 @@ function createWindow () {
     process.env.ELECTRON_START_URL ||
     // Load the Ionic application after building with `ionic build --prod`
     `file://${__dirname}/www/index.html`
-
-    // This should use the source but it's showing empty page
-    //`file://${__dirname}/src/index.html`
   );
 
-  // Alternate way to load directory
+  // // Alternate way to load directory
+  // // This should use the source but it's showing empty page
   // win.loadURL(
-  //  process.env.ELECTRON_START_URL ||
-  //  `file://${__dirname}/src/index.html`
+  //   process.env.ELECTRON_START_URL ||
+  //   `file://${__dirname}/src/index.html`
   // );
 }
 
