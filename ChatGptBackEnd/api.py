@@ -2,13 +2,12 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import json
 import openai
-#import os
+import os
 
 #from dotenv import load_dotenv, find_dotenv
 #_ = load_dotenv(find_dotenv())
 
-#openai.api_key  = os.getenv('api_key')
-openai.api_key  = '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'
+openai.api_key  = os.getenv('api_key')
 
 def get_completion(prompt, model="gpt-3.5-turbo", temperature=0):
     messages = [{"role": "user", "content": prompt}]
