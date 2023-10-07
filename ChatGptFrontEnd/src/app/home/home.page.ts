@@ -11,6 +11,7 @@ export class HomePage implements OnInit {
   responseText: string = '';
   keys: string[] = [];
   selectedKey: string = '';
+  history: any[] = [];
 
   constructor(private http: HttpClient) {}
 
@@ -19,12 +20,26 @@ export class HomePage implements OnInit {
       this.keys = keys;
       this.selectedKey = keys[0];
     });
+
+    // Fetch history from the server
+    this.http.get<any[]>('http://localhost:5500/history')
+      .subscribe(data => {
+        this.history = data;
+    });
   }
 
   submitText() {
     this.http.post('http://localhost:5500/endpoint', { text: this.text, key: this.selectedKey })
       .subscribe((response: any) => {
-        this.responseText = `${response.text}`;
+        //const result = `Key: ${response.key}, Value: ${response.value}, Text: ${response.text}`;
+        this.responseText = `${response.value}`;
+
+        // Add the transaction to history
+        this.history.push({
+          text: this.text,
+          key: this.selectedKey,
+          value: response.value
+        });
       });
   }
 }
