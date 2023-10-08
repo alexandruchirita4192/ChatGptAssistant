@@ -19,16 +19,20 @@
       </ion-row>
       <ion-row>
         <ion-col>
-          <ion-label>User input text:</ion-label>
-          <ion-textarea [(ngModel)]="text" placeholder="Click here to type user input text"></ion-textarea>
-          <ion-select [(ngModel)]="selectedKey" interface="alert">
+          <ion-textarea [(ngModel)]="text" label="User input text:"
+            placeholder="Click here to type user input text"></ion-textarea>
+          <ion-select label="Request type:" placeholder="Select request type" [(ngModel)]="selectedKey"
+            interface="alert">
             <ion-select-option *ngFor="let key of keys" [value]="key">
-              Request type: {{key.toString().split('_').join(' ')}}
+              {{key.toString().split('_').join(' ')}}
             </ion-select-option>
           </ion-select>
           <ion-button expand="full" (click)="submitText()">Submit</ion-button>
-          <ion-label>ChatGPT response:</ion-label>
-          <ion-textarea [(ngModel)]="responseText" placeholder="ChatGPT response will be filled here"></ion-textarea>
+          <ion-textarea label="Template:" [(ngModel)]="responseTemplate"
+            placeholder="Template used for the request of selected type will be filled here"
+            [readonly]="true"></ion-textarea>
+          <ion-textarea [(ngModel)]="responseText" label="ChatGPT response:"
+            placeholder="ChatGPT response will be filled here"></ion-textarea>
         </ion-col>
       </ion-row>
       <ion-row style="user-select: none;">
@@ -48,8 +52,14 @@
               </tr>
               <tr *ngFor="let item of history" style="border: 3px dashed #1c87c9;">
                 <td style="vertical-align: top; border: 3px dashed #1c87c9;">
-                  <pre style="text-wrap: wrap;">{{item.key.toString().split('_').join('
-                  ')}}</pre>
+                  <div>
+                    <b>Type:</b>
+                    <pre style="text-wrap: wrap;">{{item.key.toString().split('_').join(' ')}}</pre>
+                  </div>
+                  <div>
+                    <b>Template:</b>
+                    <pre style="text-wrap: wrap;">{{item.template}}</pre>
+                  </div>
                 </td>
                 <td style="vertical-align: top; border: 3px dashed #1c87c9;">
                   <pre style="text-wrap: wrap;">{{item.text}}</pre>

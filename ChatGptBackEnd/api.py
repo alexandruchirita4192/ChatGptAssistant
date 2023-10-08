@@ -63,6 +63,7 @@ def handle_text():
     history_item = {
         'key': key,
         'text': text,
+        'template': value,
         'value': response
     }
     history.append(history_item)

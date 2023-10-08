@@ -9,6 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class HomePage implements OnInit {
   text: string = '';
   responseText: string = '';
+  responseTemplate: string = '';
   keys: string[] = [];
   selectedKey: string = '';
   history: any[] = [];
@@ -18,7 +19,6 @@ export class HomePage implements OnInit {
   ngOnInit() {
     this.http.get<string[]>('http://localhost:5500/keys').subscribe((keys) => {
       this.keys = keys;
-      this.selectedKey = keys[0];
     });
 
     // Fetch history from the server
@@ -33,6 +33,7 @@ export class HomePage implements OnInit {
       .subscribe((response: any) => {
         //const result = `Key: ${response.key}, Value: ${response.value}, Text: ${response.text}`;
         this.responseText = `${response.value}`;
+        this.responseTemplate = `${response.template}`;
 
         // Add the transaction to history
         this.history.push({
