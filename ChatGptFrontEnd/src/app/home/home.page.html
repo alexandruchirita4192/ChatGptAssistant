@@ -10,36 +10,55 @@
       <ion-title size="large">Ionic ChatGPT Assistant</ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <div id="container" style="display: flex; justify-content: center; align-items: center; height: 100%;">
-    <ion-grid [fixed]="true">
-      <ion-row>
+  <div id="container" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+    <ion-grid style="width: 800px; height: 600px; overflow: scroll;">
+      <ion-row style="user-select: none;">
         <ion-col size="3">&nbsp;</ion-col>
         <ion-col size="3">&nbsp;</ion-col>
         <ion-col size="3">&nbsp;</ion-col>
       </ion-row>
       <ion-row>
-        <ion-col size="3">&nbsp;</ion-col>
-        <ion-col size="auto">
-          <ion-label>Enter your text:</ion-label>
-          <ion-textarea [(ngModel)]="text"></ion-textarea>
+        <ion-col>
+          <ion-label>User input text:</ion-label>
+          <ion-textarea [(ngModel)]="text" placeholder="Click here to type user input text"></ion-textarea>
           <ion-select [(ngModel)]="selectedKey" interface="alert">
             <ion-select-option *ngFor="let key of keys" [value]="key">
-              {{key.toString().split('_').join(' ')}}
+              Request type: {{key.toString().split('_').join(' ')}}
             </ion-select-option>
           </ion-select>
           <ion-button expand="full" (click)="submitText()">Submit</ion-button>
           <ion-label>ChatGPT response:</ion-label>
-          <ion-textarea [(ngModel)]="responseText"></ion-textarea>
+          <ion-textarea [(ngModel)]="responseText" placeholder="ChatGPT response will be filled here"></ion-textarea>
         </ion-col>
-        <ion-card style="max-width: 500px; width: 100%; padding: 20px;">
-          <ion-card-title>History</ion-card-title>
+      </ion-row>
+      <ion-row style="user-select: none;">
+        <ion-col size="3">&nbsp;</ion-col>
+        <ion-col size="3">&nbsp;</ion-col>
+        <ion-col size="3">&nbsp;</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-card>
+          <ion-card-title style="border: 3px dashed #1c87c9;">History</ion-card-title>
           <ion-list>
-            <ion-item *ngFor="let item of history">
-              <ion-label>
-                Text: {{item.text}}, Key: {{item.key}}, Response: {{item.value}}
-              </ion-label>
-            </ion-item>
+            <table style="text-align: start; border: 3px dashed #1c87c9;">
+              <tr style="border: 3px dashed #1c87c9;">
+                <th style="border: 3px dashed #1c87c9;">Request type</th>
+                <th style="border: 3px dashed #1c87c9;">User input text</th>
+                <th style="border: 3px dashed #1c87c9;">ChatGPT response</th>
+              </tr>
+              <tr *ngFor="let item of history" style="border: 3px dashed #1c87c9;">
+                <td style="vertical-align: top; border: 3px dashed #1c87c9;">
+                  <pre style="text-wrap: wrap;">{{item.key.toString().split('_').join('
+                  ')}}</pre>
+                </td>
+                <td style="vertical-align: top; border: 3px dashed #1c87c9;">
+                  <pre style="text-wrap: wrap;">{{item.text}}</pre>
+                </td>
+                <td style="vertical-align: top; border: 3px dashed #1c87c9;">
+                  <pre style="text-wrap: wrap;">{{item.value}}</pre>
+                </td>
+              </tr>
+            </table>
           </ion-list>
         </ion-card>
         <ion-col size="3">&nbsp;</ion-col>
