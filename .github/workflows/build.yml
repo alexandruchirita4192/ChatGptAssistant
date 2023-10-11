@@ -17,7 +17,27 @@ jobs:
       - name: Install Node.js, NPM and Yarn
         uses: actions/setup-node@v1
         with:
-          node-version: 10
+          node-version: 13.x
+          
+      - name: Setup java
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+          
+      - name: Install Ionic
+        run: npm install -g @ionic/cli
+
+      - name: Install app dependencies
+        working-directory: "ChatGptFrontEnd"
+        run: npm install
+
+      - name: Build Ionic App
+        working-directory: "ChatGptFrontEnd"
+        run: ionic build --prod
+
+      - name: Build Electron Releases
+        working-directory: "ChatGptFrontEnd"
+        run: electron-packager . --platform=all --overwrite
 
       - name: Build/release Electron app
         uses: samuelmeuli/action-electron-builder@v1
@@ -29,3 +49,6 @@ jobs:
           # If the commit is tagged with a version (e.g. "v1.0.0"),
           # release the app after building
           release: ${{ startsWith(github.ref, 'refs/tags/v') }}
+
+          # Path where to run the npm commands
+          package_root: "ChatGptFrontEnd"
