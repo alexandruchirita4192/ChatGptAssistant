@@ -35,14 +35,18 @@ jobs:
         working-directory: "ChatGptFrontEnd"
         run: ionic build --prod
 
-      - name: Install Electron Globally
-        working-directory: "ChatGptFrontEnd"
-        run: npm install -g electron-packager
+      #- name: Install Electron Packager Globally
+      #  working-directory: "ChatGptFrontEnd"
+      #  run: npm install -g electron-packager
 
       #- name: Build Electron Releases
       #  working-directory: "ChatGptFrontEnd"
       #  run: electron-packager . --platform=all --overwrite
 
+      - name: Install Electron Packager Globally
+        working-directory: "ChatGptFrontEnd"
+        run: npm install -g electron-builder
+      
       - name: Build/release Electron app
         uses: samuelmeuli/action-electron-builder@v1
         with:
