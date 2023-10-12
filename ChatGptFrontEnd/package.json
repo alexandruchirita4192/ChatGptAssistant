@@ -3,6 +3,10 @@
   "version": "0.0.2",
   "author": "Chirita Alexandru",
   "homepage": ".",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alexandruchirita4192/ChatGptAssistant.git"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
