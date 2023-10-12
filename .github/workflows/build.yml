@@ -37,6 +37,10 @@ jobs:
 
       - name: Build Electron Releases
         working-directory: "ChatGptFrontEnd"
+        run: npm install -g electron-packager
+
+      - name: Build Electron Releases
+        working-directory: "ChatGptFrontEnd"
         run: electron-packager . --platform=all --overwrite
 
       - name: Build/release Electron app
