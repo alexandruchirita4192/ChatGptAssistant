@@ -27,9 +27,9 @@ jobs:
       - name: Install Ionic
         run: npm install -g @ionic/cli
 
-      - name: Install app dependencies
+      - name: Install app dependencies (using `--legacy-peer-deps` to install without downgrading due to other constraints)
         working-directory: "ChatGptFrontEnd"
-        run: npm install
+        run: npm install --legacy-peer-deps
 
       - name: Build Ionic App
         working-directory: "ChatGptFrontEnd"
