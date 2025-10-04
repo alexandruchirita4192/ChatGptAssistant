@@ -30,6 +30,10 @@ jobs:
       - name: Install app dependencies (using `--legacy-peer-deps` to install without downgrading due to other constraints)
         working-directory: "ChatGptFrontEnd"
         run: npm install --legacy-peer-deps
+        
+      - name: Upgrade Angular Version to Version 19 & install dependencies without downgrading & commit & push changes that made it work
+        working-directory: "ChatGptFrontEnd"
+        run: ng update @angular/core@19 @angular/cli@19 && npm install --legacy-peer-deps && git commit && git push
 
       - name: Build Ionic App
         working-directory: "ChatGptFrontEnd"
