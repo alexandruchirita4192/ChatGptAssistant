@@ -7,7 +7,14 @@ import os
 # from dotenv import load_dotenv, find_dotenv
 # _ = load_dotenv(find_dotenv())
 
-openai.api_key = os.getenv('api_key')
+api_key = os.getenv('api_key', '')
+
+# Default API Key if none is provided, for development or testing purposes only (unsafe for public use because of costs)
+if api_key == '':
+    # Add your API key here for development or testing
+    api_key = ''
+    
+openai.api_key = api_key
 
 
 def get_completion(prompt, model="gpt-3.5-turbo", temperature=0):
